@@ -10,6 +10,9 @@
 build
 target
 
+#Gradle
+!gradle-wrapper.jar
+
 #IntelliJ IDEA
 .idea
 *.ipr
