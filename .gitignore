@@ -12,6 +12,7 @@ target
 
 #Gradle
 !gradle-wrapper.jar
+.gradle
 
 #IntelliJ IDEA
 .idea
