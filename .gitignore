@@ -21,3 +21,8 @@ target
 *.iws
 *.eml
 .shelf
+
+#vim
+*~
+*.swp
+*.swo
