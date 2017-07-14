@@ -20,4 +20,3 @@ public class ExampleControler {
         return user.toString();
     }
 }
-
