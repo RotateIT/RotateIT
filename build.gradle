@@ -33,3 +33,10 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.0.1'
     distributionUrl = "https://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
 }
+
+clean.doFirst {
+    delete "${rootDir}/classes"
+    delete "${rootDir}/src/main/resources/static"
+}
+
+bootRun.dependsOn(build)
