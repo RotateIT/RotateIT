@@ -1,11 +1,11 @@
-package rotate.it;
+package rotateit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import rotate.it.data.model.User;
-import rotate.it.data.repository.UserRepository;
+import rotateit.data.model.User;
+import rotateit.data.repository.UserRepository;
 
 @RestController
 public class ExampleControler {

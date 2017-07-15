@@ -1,4 +1,4 @@
-package rotate.it.data.model;
+package rotateit.data.model;
 
 
 import javax.persistence.Column;
