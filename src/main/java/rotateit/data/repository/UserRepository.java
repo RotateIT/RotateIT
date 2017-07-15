@@ -1,7 +1,7 @@
-package rotate.it.data.repository;
+package rotateit.data.repository;
 
 import org.springframework.data.repository.Repository;
-import rotate.it.data.model.User;
+import rotateit.data.model.User;
 
 import java.util.List;
 
