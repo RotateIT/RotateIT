@@ -26,3 +26,10 @@ target
 *~
 *.swp
 *.swo
+
+#Frontend
+node_modules
+tmp
+out-tsc
+classes
+/src/main/java/resources/static/*
