@@ -1,0 +1,24 @@
+{
+  "action": "labeled",
+  "number": 1,
+  "pull_request": {
+    "id": 126624344,
+    "html_url": "https://github.com/analbella/rotator/pull/1",
+    "number": 1,
+    "state": "open",
+    "title": "Update .gitignore",
+    "user": {
+      "login": "analbella",
+      "id": 11491530,
+      "type": "User",
+      "site_admin": false
+    }
+  },
+  "label": {
+    "id": 629619391,
+    "url": "https://api.github.com/repos/analbella/rotator/labels/bug",
+    "name": "bug",
+    "color": "ee0701",
+    "default": true
+  }
+}
