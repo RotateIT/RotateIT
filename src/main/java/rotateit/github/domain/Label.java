@@ -2,10 +2,12 @@ package rotateit.github.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
+import static com.fasterxml.jackson.annotation.JsonCreator.Mode.PROPERTIES;
+
 public class Label {
     private final String name;
 
-    @JsonCreator
+    @JsonCreator(mode = PROPERTIES)
     public Label(String name) {
         this.name = name;
     }
