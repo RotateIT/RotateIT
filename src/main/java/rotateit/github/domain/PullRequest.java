@@ -3,10 +3,12 @@ package rotateit.github.domain;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import static rotateit.github.domain.PullRequestState.fromString;
+
 public class PullRequest {
     private final String number;
     private final String htmlUrl;
-    private final String state;
+    private final PullRequestState pullRequestState;
     private final String title;
     private final User user;
 
@@ -16,7 +18,7 @@ public class PullRequest {
                        @JsonProperty("user") User user) {
         this.number = number;
         this.htmlUrl = htmlUrl;
-        this.state = state;
+        this.pullRequestState = fromString(state);
         this.title = title;
         this.user = user;
     }
@@ -29,8 +31,8 @@ public class PullRequest {
         return htmlUrl;
     }
 
-    public String getState() {
-        return state;
+    public PullRequestState getPullRequestState() {
+        return pullRequestState;
     }
 
     public String getTitle() {
