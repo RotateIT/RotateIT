@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Task from './Task.js'
+import PropTypes from 'prop-types';
 
 export default class Swimlane extends React.Component {
     render() {
@@ -19,4 +20,9 @@ export default class Swimlane extends React.Component {
             />
         );
     }
+}
+
+Swimlane.propTypes = {
+    title: PropTypes.string.isRequired,
+    tasks: PropTypes.array.isRequired
 }
