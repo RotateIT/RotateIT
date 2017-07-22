@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Task from './Task.js'
 import PropTypes from 'prop-types';
 
-export default class Swimlane extends React.Component {
+export default class Swimlane extends Component {
     render() {
         return (
             <div className="swimlane">

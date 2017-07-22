@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Task extends React.Component {
+export default class Task extends Component {
     render() {
         return (
-            <div className="task">
+            <button onClick={() => this.gotoUrl(this.props.url)} className="task">
                 <div className="title">
                     <a href={this.props.url}>{this.props.title}</a>
                 </div>
                 <div className="startTime">{this.props.startTime}</div>
-            </div>);
+            </button>);
+    }
+
+    gotoUrl(url) {
+        window.location = url;
     }
 }
 
