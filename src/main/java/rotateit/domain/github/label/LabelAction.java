@@ -1,4 +1,4 @@
-package rotateit.github.domain;
+package rotateit.domain.github.label;
 
 import static com.google.common.base.Ascii.toUpperCase;
 
