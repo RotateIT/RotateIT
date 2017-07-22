@@ -1,9 +1,9 @@
-package rotateit.github.domain;
+package rotateit.domain.github.label;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import static rotateit.github.domain.PullRequestState.fromString;
+import static rotateit.domain.github.label.PullRequestState.fromString;
 
 public class PullRequest {
     private final String number;
