@@ -29,4 +29,8 @@ public class LabelPayload {
     public Label getLabel() {
         return label;
     }
+
+    public boolean isPullRequestInOpenState() {
+        return pullRequest.isOpen();
+    }
 }

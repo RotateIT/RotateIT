@@ -8,6 +8,7 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.scheduling.support.TaskUtils;
 import rotateit.controller.LabelWebhookController;
 import rotateit.service.EventPublisher;
+import rotateit.service.github.label.OnClosedPullRequestLabelEventListener;
 import rotateit.service.github.label.OnLabelEventToPersistListener;
 import rotateit.service.github.label.OnLabelEventToViewListener;
 
@@ -40,5 +41,10 @@ public class ApplicationContext {
     @Bean
     public OnLabelEventToViewListener onLabelEventToViewListener() {
         return new OnLabelEventToViewListener();
+    }
+
+    @Bean
+    public OnClosedPullRequestLabelEventListener onClosedPullRequestLabelEventListener() {
+        return new OnClosedPullRequestLabelEventListener();
     }
 }

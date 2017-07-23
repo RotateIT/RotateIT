@@ -5,7 +5,7 @@ import rotateit.domain.github.label.LabelEvent;
 
 public class OnLabelEventToViewListener {
 
-    @EventListener
+    @EventListener(condition = "#labelEvent.pullRequestInOpenState")
     public void onEvent(LabelEvent labelEvent) {
     }
 }

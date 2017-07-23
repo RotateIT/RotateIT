@@ -9,4 +9,8 @@ public enum PullRequestState {
     public static PullRequestState fromString(String state) {
         return valueOf(toUpperCase(state));
     }
+
+    public boolean isOpen() {
+        return this == OPEN;
+    }
 }

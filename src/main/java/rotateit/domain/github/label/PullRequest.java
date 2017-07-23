@@ -42,4 +42,8 @@ public class PullRequest {
     public User getUser() {
         return user;
     }
+
+    public boolean isOpen() {
+        return pullRequestState.isOpen();
+    }
 }
