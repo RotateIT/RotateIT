@@ -11,7 +11,7 @@ import rotateit.service.EventPublisher;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static rotateit.domain.github.label.LabelEvent.aLabelEvent;
+import static rotateit.domain.github.label.LabelReceivedEvent.aLabelReceivedEvent;
 
 @RestController
 public class LabelWebhookController {
@@ -26,6 +26,6 @@ public class LabelWebhookController {
     @RequestMapping(value = "/api/github/labelWebhookRequest", method = POST, consumes = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
     public void labelWebhookRequest(@RequestBody LabelPayload labelPayload) {
-        eventPublisher.publish(aLabelEvent(labelPayload));
+        eventPublisher.publish(aLabelReceivedEvent(labelPayload));
     }
 }

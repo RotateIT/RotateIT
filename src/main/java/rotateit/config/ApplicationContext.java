@@ -8,9 +8,10 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.scheduling.support.TaskUtils;
 import rotateit.controller.LabelWebhookController;
 import rotateit.service.EventPublisher;
-import rotateit.service.github.label.OnClosedPullRequestLabelEventListener;
-import rotateit.service.github.label.OnLabelEventToPersistListener;
-import rotateit.service.github.label.OnLabelEventToViewListener;
+import rotateit.service.github.label.OnClosedPullRequestLabelReceivedEventListener;
+import rotateit.service.github.label.OnLabelReceivedEventToPersistListener;
+import rotateit.service.github.label.OnLabelReceivedEventToViewListener;
+import rotateit.service.github.label.OnOpenPullRequestLabelReceivedEventListener;
 
 @Configuration
 public class ApplicationContext {
@@ -34,17 +35,22 @@ public class ApplicationContext {
     }
 
     @Bean
-    public OnLabelEventToPersistListener onLabelEventToPersistListener() {
-        return new OnLabelEventToPersistListener();
+    public OnLabelReceivedEventToPersistListener onLabelReceivedEventToPersistListener() {
+        return new OnLabelReceivedEventToPersistListener();
     }
 
     @Bean
-    public OnLabelEventToViewListener onLabelEventToViewListener() {
-        return new OnLabelEventToViewListener();
+    public OnLabelReceivedEventToViewListener onLabelReceivedEventToViewListener() {
+        return new OnLabelReceivedEventToViewListener();
     }
 
     @Bean
-    public OnClosedPullRequestLabelEventListener onClosedPullRequestLabelEventListener() {
-        return new OnClosedPullRequestLabelEventListener();
+    public OnClosedPullRequestLabelReceivedEventListener onClosedPullRequestLabelEventListener() {
+        return new OnClosedPullRequestLabelReceivedEventListener();
+    }
+
+    @Bean
+    public OnOpenPullRequestLabelReceivedEventListener onOpenPullRequestLabelReceivedEventListener() {
+        return new OnOpenPullRequestLabelReceivedEventListener();
     }
 }

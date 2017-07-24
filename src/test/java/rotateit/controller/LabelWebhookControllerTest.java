@@ -10,7 +10,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import rotateit.domain.github.label.LabelEvent;
+import rotateit.domain.github.label.LabelReceivedEvent;
 import rotateit.service.EventPublisher;
 
 import java.net.URL;
@@ -51,7 +51,7 @@ public class LabelWebhookControllerTest {
     public void shouldPublishLabelPayload() throws Exception {
         performPostOf(JSON_REQUEST);
 
-        then(publisher).should().publish(isA(LabelEvent.class));
+        then(publisher).should().publish(isA(LabelReceivedEvent.class));
     }
 
     private ResultActions performPostOf(String jsonPayload) throws Exception {
