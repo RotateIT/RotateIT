@@ -11,8 +11,6 @@ import rotateit.controller.LabelWebhookController;
 import rotateit.domain.github.label.event.factory.*;
 import rotateit.service.EventPublisher;
 import rotateit.service.github.label.OnClosedPullRequestLabelReceivedEventListener;
-import rotateit.service.github.label.OnLabelReceivedEventToPersistListener;
-import rotateit.service.github.label.OnLabelReceivedEventToViewListener;
 import rotateit.service.github.label.OnOpenPullRequestLabelReceivedEventListener;
 
 import java.util.Map;
@@ -36,16 +34,6 @@ public class ApplicationContext {
     @Bean
     public LabelWebhookController labelWebhookController(EventPublisher eventPublisher) {
         return new LabelWebhookController(eventPublisher);
-    }
-
-    @Bean
-    public OnLabelReceivedEventToPersistListener onLabelReceivedEventToPersistListener() {
-        return new OnLabelReceivedEventToPersistListener();
-    }
-
-    @Bean
-    public OnLabelReceivedEventToViewListener onLabelReceivedEventToViewListener() {
-        return new OnLabelReceivedEventToViewListener();
     }
 
     @Bean
