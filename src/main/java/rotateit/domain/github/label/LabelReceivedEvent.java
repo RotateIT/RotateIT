@@ -3,9 +3,9 @@ package rotateit.domain.github.label;
 import org.springframework.context.ApplicationEvent;
 
 @SuppressWarnings("unchecked")
-public class LabelEvent extends ApplicationEvent {
+public class LabelReceivedEvent extends ApplicationEvent {
 
-    private LabelEvent(LabelPayload labelPayload) {
+    private LabelReceivedEvent(LabelPayload labelPayload) {
         super(labelPayload);
     }
 
@@ -19,7 +19,7 @@ public class LabelEvent extends ApplicationEvent {
         return getSource().isPullRequestInOpenState();
     }
 
-    public static LabelEvent aLabelEvent(LabelPayload labelPayload) {
-        return new LabelEvent(labelPayload);
+    public static LabelReceivedEvent aLabelReceivedEvent(LabelPayload labelPayload) {
+        return new LabelReceivedEvent(labelPayload);
     }
 }
