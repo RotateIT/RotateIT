@@ -1,23 +1,29 @@
 import React, {Component} from "react";
 import Swimlane from "./Swimlane.js";
+import WebSocketUpdater from "./WebSocketUpdater";
 
 export default class App extends Component {
 
     constructor() {
         super();
-        let tempAllSwimlaneData = new Map();
-        tempAllSwimlaneData.set('Gauss', {
+        this.state = {
+            allSwimlaneData: new Map()
+        };
+    }
+
+    componentDidMount() {
+        this.addSwimlaneData('Gauss', {
             tasks: [
                 {title: 'Revert "ETD"', url: 'http://wp.pl', startTime: '12312123123'},
                 {title: 't2', url: 'http://wp.pl', startTime: '12312123123'},
             ]
         });
-        tempAllSwimlaneData.set('Maxwell', {
+        this.addSwimlaneData('Maxwell', {
             tasks: [
                 {title: 'Add stuff', url: 'http://wp.pl', startTime: '12312123123'},
             ]
         });
-        tempAllSwimlaneData.set('Planck', {
+        this.addSwimlaneData('Planck', {
             tasks: [
                 {title: 'Gradle magic', url: 'http://wp.pl', startTime: '12312123123'},
                 {title: 't2', url: 'http://wp.pl', startTime: '12312123123'},
@@ -25,9 +31,7 @@ export default class App extends Component {
                 {title: 't4', url: 'http://wp.pl', startTime: '12312123123'},
             ]
         });
-        this.state = {
-            allSwimlaneData: tempAllSwimlaneData
-        }
+        new WebSocketUpdater(this);
     }
 
     render() {
@@ -41,11 +45,25 @@ export default class App extends Component {
 
     buildAllSwimlaneData(allSwimlaneData) {
         let result = [];
-        allSwimlaneData.forEach((object, key) => result.push(this.makeSwimlane(object, key)));
+        allSwimlaneData.forEach((objectValue, key) => result.push(this.makeSwimlane(key, objectValue)));
         return result;
     }
 
-    makeSwimlane(swimlaneData, key) {
-        return (<Swimlane title={key} tasks={swimlaneData.tasks}/>);
+    makeSwimlane(teamName, swimlaneData) {
+        return (<Swimlane title={teamName} tasks={swimlaneData.tasks}/>);
+    }
+
+    addSwimlaneData(teamName, swimlaneData) {
+        this.setState(function (previousState, props) {
+            if (previousState.allSwimlaneData.get(teamName)) {
+                let newAllSwimlaneData = new Map(previousState.allSwimlaneData);
+                newAllSwimlaneData.get(teamName).tasks.push(swimlaneData.tasks);
+                return {allSwimlaneData: newAllSwimlaneData}
+            } else {
+                let newAllSwimlaneData = new Map(previousState.allSwimlaneData);
+                newAllSwimlaneData.set(teamName, swimlaneData);
+                return {allSwimlaneData: newAllSwimlaneData}
+            }
+        });
     }
 }
