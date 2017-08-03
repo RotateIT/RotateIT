@@ -18,6 +18,8 @@ import rotateit.domain.github.label.event.factory.UnknownReviewActionEventFactor
 import rotateit.service.EventPublisher;
 import rotateit.service.github.label.OnClosedPullRequestLabelReceivedEventListener;
 import rotateit.service.github.label.OnOpenPullRequestLabelReceivedEventListener;
+import rotateit.service.rotation.ReadyForReviewEventListener;
+import rotateit.service.rotation.Rotator;
 
 @Configuration
 public class ApplicationContext {
@@ -60,5 +62,15 @@ public class ApplicationContext {
     public OnOpenPullRequestLabelReceivedEventListener onOpenPullRequestLabelReceivedEventListener(
         ReviewActionEventFactoryProvider factoryProducer, ApplicationEventMulticaster eventMulticaster) {
         return new OnOpenPullRequestLabelReceivedEventListener(factoryProducer, eventMulticaster);
+    }
+
+    @Bean
+    public Rotator rotator() {
+        return new Rotator();
+    }
+
+    @Bean
+    public ReadyForReviewEventListener readyForReviewEventListener(Rotator rotator) {
+        return new ReadyForReviewEventListener(rotator);
     }
 }
