@@ -47,4 +47,14 @@ clean.doFirst {
     delete "${rootDir}/classes"
 }
 
+compileJava {
+    options.compilerArgs << "-Werror"
+    options.compilerArgs << "-Xlint:all"
+}
+
+compileTestJava {
+    options.compilerArgs << "-Werror"
+    options.compilerArgs << "-Xlint:all"
+}
+
 bootRun.dependsOn(build)
