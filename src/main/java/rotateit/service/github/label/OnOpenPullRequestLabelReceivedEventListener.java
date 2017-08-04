@@ -19,7 +19,7 @@ public class OnOpenPullRequestLabelReceivedEventListener {
 
     @EventListener(condition = "#labelReceivedEvent.pullRequestInOpenState")
     public void onEvent(LabelReceivedEvent labelReceivedEvent) {
-        ApplicationEvent event = factoryProvider.factoryFor(labelReceivedEvent).createReviewActionEvent(null);
+        ApplicationEvent event = factoryProvider.factoryFor(labelReceivedEvent).createReviewActionEvent(labelReceivedEvent.getSource());
         eventMulticaster.multicastEvent(event);
     }
 }
