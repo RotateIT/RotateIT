@@ -7,6 +7,6 @@ public class OnClosedPullRequestLabelReceivedEventListener {
 
     @EventListener(condition = "!#labelReceivedEvent.pullRequestInOpenState")
     public void onEvent(LabelReceivedEvent labelReceivedEvent) {
-
+        //TODO
     }
 }

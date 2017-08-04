@@ -12,6 +12,7 @@ import rotateit.data.repository.UserRepository;
 import rotateit.uidto.UiTeam;
 import rotateit.uidto.UiUser;
 
+@SuppressWarnings("PMD")
 @RestController()
 public class ExampleControler {
 

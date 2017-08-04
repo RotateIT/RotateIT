@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import rotateit.domain.github.label.LabelReceivedEvent;
 import rotateit.service.EventPublisher;
 
+@SuppressWarnings({"PMD.SignatureDeclareThrowsException", "PMD.AvoidCatchingGenericException"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class LabelWebhookControllerTest {
     private static final String JSON_REQUEST_PATH = "/github/label/exampleLabelWebhookRequest.json";

@@ -32,8 +32,6 @@ public class OnOpenPullRequestLabelReceivedEventListenerTest {
     private ApplicationEventMulticaster eventMulticaster;
     @Autowired
     private ApplicationContext publishingHelper;
-    @Autowired
-    private OnOpenPullRequestLabelReceivedEventListener onOpenPullRequestLabelReceivedEventListener;
 
     @Test
     public void shouldBeConsumedAndPublishedByEventListenerIfLabelReceivedEventWasOnOpenPullRequest() {
