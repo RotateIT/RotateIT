@@ -1,7 +1,12 @@
 package rotateit.data.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User implements Serializable {
@@ -44,10 +49,9 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
-            "team=" + team +
-            ", userId=" + userId +
-            ", name='" + name + '\'' +
-            '}';
+        return "User{team=" + team
+            + ", userId=" + userId
+            + ", name='" + name
+            + "\'}";
     }
 }

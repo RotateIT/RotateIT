@@ -1,6 +1,16 @@
 package rotateit.controller;
 
+import static com.google.common.base.Charsets.UTF_8;
+import static org.junit.Assert.fail;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Matchers.isA;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+
 import com.google.common.io.Resources;
+import java.net.URL;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,17 +22,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import rotateit.domain.github.label.LabelReceivedEvent;
 import rotateit.service.EventPublisher;
-
-import java.net.URL;
-
-import static com.google.common.base.Charsets.UTF_8;
-import static org.junit.Assert.fail;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Matchers.isA;
-import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class LabelWebhookControllerTest {
