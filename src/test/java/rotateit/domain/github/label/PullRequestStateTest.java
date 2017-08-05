@@ -1,15 +1,16 @@
 package rotateit.domain.github.label;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.internal.util.collections.Sets.newSet;
+import static rotateit.domain.github.label.PullRequestState.CLOSED;
+import static rotateit.domain.github.label.PullRequestState.OPEN;
+import static rotateit.domain.github.label.PullRequestState.fromString;
+
+import java.util.Set;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.Set;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.internal.util.collections.Sets.newSet;
-import static rotateit.domain.github.label.PullRequestState.*;
 
 @RunWith(JUnitParamsRunner.class)
 public class PullRequestStateTest {

@@ -1,5 +1,7 @@
 package rotateit;
 
+import java.io.IOException;
+import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -8,9 +10,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.resource.PathResourceResolver;
-
-import java.io.IOException;
-import java.util.Arrays;
 
 @Configuration
 @EnableConfigurationProperties({ResourceProperties.class})

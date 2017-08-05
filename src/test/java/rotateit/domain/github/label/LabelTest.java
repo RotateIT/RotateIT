@@ -1,10 +1,10 @@
 package rotateit.domain.github.label;
 
-import org.junit.Test;
-
 import static pl.pojo.tester.api.assertion.Assertions.assertPojoMethodsFor;
 import static pl.pojo.tester.api.assertion.Method.CONSTRUCTOR;
 import static pl.pojo.tester.api.assertion.Method.GETTER;
+
+import org.junit.Test;
 
 public class LabelTest {
 

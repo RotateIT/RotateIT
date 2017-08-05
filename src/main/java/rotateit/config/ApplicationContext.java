@@ -1,6 +1,7 @@
 package rotateit.config;
 
 import com.google.common.collect.ImmutableMap;
+import java.util.Map;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ApplicationEventMulticaster;
@@ -8,12 +9,15 @@ import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.scheduling.support.TaskUtils;
 import rotateit.controller.LabelWebhookController;
-import rotateit.domain.github.label.event.factory.*;
+import rotateit.domain.github.label.event.factory.ReadyForReviewEventFactory;
+import rotateit.domain.github.label.event.factory.ReviewActionEventFactory;
+import rotateit.domain.github.label.event.factory.ReviewActionEventFactoryProvider;
+import rotateit.domain.github.label.event.factory.ReviewDoneEventFactory;
+import rotateit.domain.github.label.event.factory.TakenForReviewEventFactory;
+import rotateit.domain.github.label.event.factory.UnknownReviewActionEventFactory;
 import rotateit.service.EventPublisher;
 import rotateit.service.github.label.OnClosedPullRequestLabelReceivedEventListener;
 import rotateit.service.github.label.OnOpenPullRequestLabelReceivedEventListener;
-
-import java.util.Map;
 
 @Configuration
 public class ApplicationContext {

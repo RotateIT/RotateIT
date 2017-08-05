@@ -1,8 +1,7 @@
 package rotateit.domain.github.label.event.factory;
 
-import rotateit.domain.github.label.LabelReceivedEvent;
-
 import java.util.Map;
+import rotateit.domain.github.label.LabelReceivedEvent;
 
 public class ReviewActionEventFactoryProvider {
 

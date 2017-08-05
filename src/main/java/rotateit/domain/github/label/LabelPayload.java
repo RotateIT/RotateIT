@@ -1,9 +1,9 @@
 package rotateit.domain.github.label;
 
+import static rotateit.domain.github.label.LabelAction.fromString;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import static rotateit.domain.github.label.LabelAction.fromString;
 
 public class LabelPayload {
     private final LabelAction labelAction;
