@@ -4,6 +4,9 @@ import org.springframework.context.ApplicationEvent;
 import rotateit.domain.github.label.LabelPayload;
 
 public class UnknownReviewActionEvent extends ApplicationEvent {
+
+    private static final long serialVersionUID = 1L;
+
     public UnknownReviewActionEvent(LabelPayload labelPayload) {
         super(labelPayload);
     }

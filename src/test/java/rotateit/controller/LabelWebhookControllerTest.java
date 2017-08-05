@@ -2,8 +2,8 @@ package rotateit.controller;
 
 import static com.google.common.base.Charsets.UTF_8;
 import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Matchers.isA;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationEvent;
 @SuppressWarnings("unchecked")
 public class LabelReceivedEvent extends ApplicationEvent {
 
+    private static final long serialVersionUID = 1L;
+
     private LabelReceivedEvent(LabelPayload labelPayload) {
         super(labelPayload);
     }
