@@ -5,6 +5,6 @@ import rotateit.domain.github.label.LabelPayload;
 
 public class PullRequestAssigned {
     public PullRequestAssigned(LabelPayload labelPayload, Team assignedTeam) {
-
+        //TODO
     }
 }

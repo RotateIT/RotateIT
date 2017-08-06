@@ -49,6 +49,7 @@ public class ApplicationContext {
 
     @Bean
     public ReviewActionEventFactoryProvider factoryProvider() {
+        @SuppressWarnings("PMD.UseConcurrentHashMap")
         Map<String, ReviewActionEventFactory> reviewActionFactories = ImmutableMap.<String, ReviewActionEventFactory>builder()
             .put("Ready For Review", new ReadyForReviewEventFactory())
             .put("Taken For Review", new TakenForReviewEventFactory())

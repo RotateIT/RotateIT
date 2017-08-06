@@ -35,8 +35,6 @@ public class ReadyForReviewEventListenerTest {
     private ApplicationEventMulticaster eventMulticaster;
     @Autowired
     private ApplicationContext publishingHelper;
-    @Autowired
-    private ReadyForReviewEventListener readyForReviewEventListener;
 
     @Before
     public void setUp() {
