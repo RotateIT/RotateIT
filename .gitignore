@@ -16,7 +16,6 @@ target
 
 #IntelliJ IDEA
 .idea
-!/.idea/codeStyleSettings.xml
 *.ipr
 *.iml
 *.iws
