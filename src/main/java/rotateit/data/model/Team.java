@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@SuppressWarnings("PMD.UncommentedEmptyConstructor")
 @Entity
 public class Team implements Serializable {
 
@@ -15,6 +16,14 @@ public class Team implements Serializable {
 
     @Column(nullable = false)
     private String name;
+
+    public Team() {
+    }
+
+    public Team(int teamId, String name) {
+        this.teamId = teamId;
+        this.name = name;
+    }
 
     public int getTeamId() {
         return teamId;
