@@ -1,11 +1,12 @@
 dist: trusty
-sudo: false
-language: java
+sudo: required
+services:
+    - docker
 
-install: /bin/true
-
-script:
-    - jdk_switcher use oraclejdk8
-    - ./gradlew --no-daemon --stacktrace clean build check
+before_install:
+    - docker pull java:8
 
 before_script: chmod +x gradlew
+
+script:
+    - docker run -v $(pwd):/build java:8 /bin/sh -c 'cd /build; ./gradlew --no-daemon --stacktrace clean build'
