@@ -13,18 +13,25 @@ repositories {
     mavenCentral()
 }
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'idea'
+plugins {
+    java
+    application
+    idea
+}
 
-apply from: 'gradle/checkstyle.gradle'
-apply from: 'gradle/pmd.gradle'
-apply from: 'gradle/findbugs.gradle'
+apply {
+    plugin("org.springframework.boot")
+    from("gradle/checkstyle.gradle.kts")
+    from("gradle/pmd.gradle.kts")
+    from("gradle/findbugs.gradle.kts")
+}
 
-version = '0.4.0'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+version = "0.4.0"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 
 
 dependencies {
@@ -40,23 +47,19 @@ dependencies {
     testCompile("org.mockito:mockito-core:2.8.47")
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.1'
-    distributionUrl = "https://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
-}
+tasks {
+    task<Wrapper>("wrapper") {
+        gradleVersion = "4.1"
+        distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+    }
 
-clean.doFirst {
-    delete "${rootDir}/classes"
-}
+    getByName("clean").doFirst {
+        delete("$rootDir/classes")
+    }
 
-compileJava {
-    options.compilerArgs << "-Werror"
-    options.compilerArgs << "-Xlint:all"
-}
+    withType<JavaCompile> {
+        options.compilerArgs.plusAssign(listOf("-Werror", "-Xlint:all"))
+    }
 
-compileTestJava {
-    options.compilerArgs << "-Werror"
-    options.compilerArgs << "-Xlint:all"
+    getByName("bootRun").dependsOn(tasks.getByName("build"))
 }
-
-bootRun.dependsOn(build)
